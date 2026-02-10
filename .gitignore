@@ -205,3 +205,17 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# RTL-ML Project Specific
+# Dataset files (hosted on Hugging Face)
+datasets/
+datasets_validated/
+*.npy
+
+# Large generated files
+*.wav
+*.iq
+
+# Temporary signal captures
+captures/
+tmp/
