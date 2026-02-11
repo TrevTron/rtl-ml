@@ -433,7 +433,7 @@ Security Researcher & AI Training Specialist
 
 - 🐙 GitHub: [@TrevTron](https://github.com/TrevTron)
 - 💼 LinkedIn: [Trevor Unland](https://linkedin.com/in/trevor-unland)
-- 🌐 Blog: Coming soon
+- 🌐 Blog: [unland.dev](https://unland.dev) (coming soon)
 - 🐦 Twitter: [@TrevTronDev](https://twitter.com/TrevTronDev)
 
 ---
