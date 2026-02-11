@@ -93,7 +93,7 @@ python src/classify_live.py --freq 1090e6  # ADS-B aircraft
 | Component | Specs | Price | Purchase Link |
 |-----------|-------|-------|---------------|
 | **Indiedroid Nova** | RK3588S, 16GB RAM, 6 TOPS NPU | $179.95 | [AmeriDroid](https://ameridroid.com/products/indiedroid-nova?ref=ioqothsk) |
-| **RTL-SDR Blog V4** | 24-1766 MHz, 0.5 PPM TCXO | $39.95 | [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) |
+| **RTL-SDR Blog V4** | 500 kHz-1.7 GHz, 1 PPM TCXO | $39.95 | [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) |
 
 ### Also Compatible With
 

@@ -10,7 +10,7 @@
 
 ### RTL-SDR Blog V4 ($39.95)
 - **Purchase**: [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
-- **Specs**: Rafael Micro R828D tuner, 24-1766 MHz, 0.5 PPM TCXO
+- **Specs**: Rafael Micro R828D tuner, 500 kHz-1.7 GHz, 1 PPM TCXO, HF upconverter
 - **Driver**: Built into Linux kernel (no install needed)
 - **USB**: Use USB 2.0 or 3.0 port
 
