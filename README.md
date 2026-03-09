@@ -88,20 +88,36 @@ python src/classify_live.py --freq 1090e6  # ADS-B aircraft
 
 ## Hardware Requirements
 
-### Tested Configuration ($220 total)
+### Tested Platforms
+
+| Platform | CPU | RAM | Processing Time* | Cost | Status |
+|----------|-----|-----|-----------------|------|--------|
+| **Indiedroid Nova** | RK3588S (8-core) | 16GB | ~102ms | $180 | ✅ Primary Dev |
+| **Raspberry Pi 5** | BCM2712 (4-core) | 8GB | 122ms | $60-80 | ✅ **Recommended** |
+| **Raspberry Pi 4** | BCM2711 (4-core) | 8GB | ~150ms (est) | $55-75 | ✅ Compatible |
+
+*Processing time = feature extraction + model inference (excludes  565ms RF capture time which is hardware-limited)
+
+**Bottom line:** Both Nova and Pi 5 deliver real-time performance. Pi 5 is recommended due to better availability, massive community support, and 67% lower cost.
+
+📊 **See [docs/PLATFORM_COMPARISON.md](docs/PLATFORM_COMPARISON.md) for detailed performance analysis (240-sample stress test results)**
+
+### Required Hardware
 
 | Component | Specs | Price | Purchase Link |
 |-----------|-------|-------|---------------|
-| **Indiedroid Nova** | RK3588S, 16GB RAM, 6 TOPS NPU | $179.95 | [AmeriDroid](https://ameridroid.com/products/indiedroid-nova?ref=ioqothsk) |
-| **RTL-SDR Blog V4** | 500 kHz-1.7 GHz, 1 PPM TCXO | $39.95 | [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) |
+| **SBC (choose one above)** | ARM64, 4GB+ RAM, USB 2.0+ | $60-180 | Various |
+| **RTL-SDR Blog V4** | 500 kHz-1.7 GHz, 1 PPM TCXO | $40 | [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) |
+
+**Total:** $100-220 depending on platform choice
 
 ### Also Compatible With
 
-- **Raspberry Pi 4/5** (8GB recommended for smooth training)
-- **Orange Pi 5** (similar performance to Nova)
-- **Rock Pi 4** 
-- **Any ARM64 SBC** with USB 2.0+ ports
-- **x86 Linux machines** (Ubuntu/Debian)
+- **Orange Pi 5** (RK3588S - similar to Nova)
+- **Rock Pi 4** (RK3399)
+- **Odroid N2+** (Amlogic S922X)
+- **Any ARM64/x86 Linux** with 4GB+ RAM, Python 3.11+, USB 2.0+
+- **Raspberry Pi 3B+** (slower but workable for inference only)
 
 ### Antenna Recommendations
 
@@ -113,6 +129,63 @@ python src/classify_live.py --freq 1090e6  # ADS-B aircraft
 See [docs/HARDWARE_SETUP.md](docs/HARDWARE_SETUP.md) for complete setup guide.
 
 ---
+
+## Why Feature Extraction Instead of Deep Learning?
+
+**TL;DR:** Feature extraction + Random Forest was chosen over deep learning (CNNs, RNNs) for practical reasons.
+
+### The Data Challenge
+
+| Approach | Training Samples Needed | Our Dataset | Result |
+|----------|------------------------|-------------|---------|
+| **Feature Extraction + Random Forest** | 200-500 | 240 ✅ | 87.5% accuracy |
+| **Deep Learning (CNN/RNN)** | 10,000-100,000 | 240 ❌ | Would overfit badly |
+
+**Reality:** Capturing 10,000+ validated RF samples is impractical for a single-person project. Each signal needs validation with decoder tools.
+
+### Practical Advantages
+
+✅ **No GPU Required**
+- Runs on ARM CPU (Raspberry Pi, etc.)
+- Training: 2-3 minutes
+- Inference: 14ms on Pi 5, 12ms on Nova
+
+✅ **Tiny Model Size**
+- Random Forest: 186KB
+- Typical CNN: 50-200MB (270-1000× larger)
+- Easy to distribute and version control
+
+✅ **Interpretable Features**
+- Can see which features (power, FFT peak, bandwidth, etc.) drive predictions
+- Helps debug misclassifications
+- Deep learning = black box
+
+✅ **Fast Iteration**
+- Add new signal type: 30 samples + 3min training
+- Deep learning: Need 1000+ samples + hours of GPU training
+
+✅ **Edge Deployment**
+- Works on low-power ARM devices
+- No cloud/server infrastructure needed
+- Perfect for IoT/embedded use cases
+
+### When to Use Deep Learning Instead
+
+Consider CNNs/RNNs if you:
+- Have 10,000+ labeled samples per class
+- Have GPU resources available
+- Need >95% accuracy
+- Can afford longer development time
+- Work with complex modulation schemes
+
+For this project's scope (8 common signal types, hobbyist hardware, real-time classification), **feature extraction + Random Forest is the pragmatic choice.**
+
+### References
+
+Inspired by similar approaches in RF signal classification research:
+- O'Shea et al. "Over-the-Air Deep Learning Based Radio Signal Classification" (2017) - showed CNNs need massive datasets
+- Ramjee et al. "Fast Deep Learning for Automatic Modulation Classification" (2019) - 100K+ training samples used
+- Our approach: Practical, reproducible, works with realistic data constraints
 
 ## How It Works
 

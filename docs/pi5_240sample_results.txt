@@ -1,0 +1,7 @@
+Pi5 240-Sample Stress Test
+Processing: 686.9ms
+Capture: 565.0ms
+Features: 108.4ms
+Inference: 13.6ms
+Temp: 51.2→54.5°C
+Duration: 166s
