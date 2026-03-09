@@ -93,12 +93,12 @@ python src/classify_live.py --freq 1090e6  # ADS-B aircraft
 | Platform | CPU | RAM | Processing Time* | Cost | Status |
 |----------|-----|-----|-----------------|------|--------|
 | **Indiedroid Nova** | RK3588S (8-core) | 16GB | ~102ms | $180 | ✅ Primary Dev |
-| **Raspberry Pi 5** | BCM2712 (4-core) | 8GB | 122ms | $60-80 | ✅ **Recommended** |
+| **Raspberry Pi 5** | BCM2712 (4-core) | 8GB | 122ms | $125 | ✅ **Recommended** |
 | **Raspberry Pi 4** | BCM2711 (4-core) | 8GB | ~150ms (est) | $55-75 | ✅ Compatible |
 
 *Processing time = feature extraction + model inference (excludes  565ms RF capture time which is hardware-limited)
 
-**Bottom line:** Both Nova and Pi 5 deliver real-time performance. Pi 5 is recommended due to better availability, massive community support, and 67% lower cost.
+**Bottom line:** Both Nova and Pi 5 deliver real-time performance. Pi 5 is recommended due to better availability, massive community support, and ~30% lower cost.
 
 📊 **See [docs/PLATFORM_COMPARISON.md](docs/PLATFORM_COMPARISON.md) for detailed performance analysis (240-sample stress test results)**
 

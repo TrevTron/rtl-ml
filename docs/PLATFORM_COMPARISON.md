@@ -22,7 +22,7 @@
 | Samples/second | 1.46 | Sustained throughput |
 
 **Hardware:** BCM2712 (4× Cortex-A76 @ 2.4GHz), 8GB RAM, Debian Bookworm  
-**Cost:** $60-80 USD
+**Cost:** $125 USD
 
 ### Indiedroid Nova (REFERENCE - from training)
 
@@ -58,7 +58,7 @@
 ### 4. Pi 5 Advantages
 | Factor | Raspberry Pi 5 | Indiedroid Nova |
 |--------|----------------|-----------------|
-| **Price** | $60-80 | $180 |
+| **Price** | $125 | $180 |
 | **Availability** | Excellent | Limited |
 | **Community** | Massive | Small |
 | **Documentation** | Extensive | Moderate |
@@ -112,7 +112,7 @@
 
 ### Choose **Raspberry Pi 5** if you want:
 - Better availability and community support
-- Lower cost ($60-80 vs $180)
+- Lower cost ($125 vs $180)
 - Proven platform with extensive documentation
 - Wide ecosystem of accessories
 - Lower power consumption
@@ -128,7 +128,7 @@
 
 **Reasoning:**
 1. 122ms processing is MORE than fast enough for RF classification
-2. 67% cheaper with better availability
+2. ~30% cheaper with better availability
 3. Massive community makes troubleshooting easier
 4. Same code, same model, same accuracy
 5. The 20% performance difference is academic - both are real-time capable
@@ -139,7 +139,7 @@
 
 **Summary paragraph:**
 
-> "The RTL-ML classifier was tested on both the Indiedroid Nova (RK3588S, $180) and Raspberry Pi 5 (BCM2712, $60-80). A 240-sample stress test on the Pi 5 achieved **122ms processing time** (108ms feature extraction + 14ms inference) compared to Nova's estimated **~102ms**. The Pi 5 is approximately 20% slower, but this is negligible for RF signal classification where both platforms operate well within real-time constraints. The same 87.5% accurate model runs identically on both platforms without code modification. **For most users, the Raspberry Pi 5 is recommended** due to its excellent community support, better availability, and significantly lower cost, while still delivering more than adequate performance for this application."
+> "The RTL-ML classifier was tested on both the Indiedroid Nova (RK3588S, $180) and Raspberry Pi 5 (BCM2712, $125). A 240-sample stress test on the Pi 5 achieved **122ms processing time** (108ms feature extraction + 14ms inference) compared to Nova's estimated **~102ms**. The Pi 5 is approximately 20% slower, but this is negligible for RF signal classification where both platforms operate well within real-time constraints. The same 87.5% accurate model runs identically on both platforms without code modification. **For most users, the Raspberry Pi 5 is recommended** due to its excellent community support, better availability, and ~30% lower cost, while still delivering more than adequate performance for this application."
 
 ---
 
