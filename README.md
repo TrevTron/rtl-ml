@@ -25,7 +25,7 @@
 | Signal | Frequency | Test Accuracy | Example Use |
 |--------|-----------|---------|-------------|
 | ✈️ ADS-B (Aircraft) | 1090 MHz | 100% | Track planes overhead |
-| 🛰️ NOAA APT (Satellite) | 137.62 MHz | 100% | Weather satellite images |
+| 🛰️ NOAA APT (Satellite) | 137.62 MHz | 100% | Weather satellite band** |
 | 📡 ISM Sensors | 433.92 MHz | 100% | Tire pressure, weather stations |
 | 📻 FM Broadcast | 98.7 MHz | 100% | Commercial radio |
 | 🌤️ NOAA Weather | 162.4 MHz | 100% | Emergency weather alerts |
@@ -34,6 +34,8 @@
 | 📊 Noise | 145.0 MHz | 67%* | Baseline noise floor |
 
 *APRS and noise show confusion due to sparse packet structure - both exhibit sporadic bursts. This is authentic ML behavior, not "100% accuracy" clickbait.
+
+**Note: NOAA APT transmissions ended August 2025 when NOAA-15 was decommissioned. Captures at 137.62 MHz represent the RF environment at that frequency (historical APT band). The classifier distinguishes this frequency's characteristics from other bands. For active satellite imagery, see Meteor-M LRPT at 137.1/137.9 MHz.
 
 ---
 
