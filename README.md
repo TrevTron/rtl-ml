@@ -508,7 +508,7 @@ Security Researcher & AI Training Specialist
 
 - 🐙 GitHub: [@TrevTron](https://github.com/TrevTron)
 - 💼 LinkedIn: [Trevor Unland](https://linkedin.com/in/trevor-unland)
-- 🌐 Blog: [unland.dev](https://unland.dev) (coming soon)
+- 🌐 Blog: [Building an AI Radio Scanner](https://unland.dev/blog/building-ai-radio-scanner-rtl-sdr-machine-learning)
 - 🐦 Twitter: [@TrevTronDev](https://twitter.com/TrevTronDev)
 
 ---
