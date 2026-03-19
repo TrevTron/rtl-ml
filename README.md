@@ -1,5 +1,7 @@
 # RTL-ML: AI-Powered Radio Signal Classifier
 
+> ⚠️ **v1.0 Dataset Notice**: Community feedback identified that several signal classes have suboptimal SNR due to antenna/gain configuration during capture. The classifier achieves stated accuracy but is partially learning frequency-specific noise characteristics rather than pure signal features. v2.0 with improved captures is in progress.
+
 **Automatically identify radio signals using machine learning on a $220 hardware setup.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
