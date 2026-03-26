@@ -82,9 +82,20 @@ def main():
     X, y = load_dataset()
     print(f"\nDataset: {len(X)} samples, {len(np.unique(y))} classes")
     
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
-    )
+    # Temporal split: train on earlier captures, test on later ones
+    # Prevents same-moment correlation from inflating accuracy
+    X_train, X_test, y_train, y_test = [], [], [], []
+    for label in sorted(np.unique(y)):
+        mask = y == label
+        X_class = X[mask]
+        y_class = y[mask]
+        split_idx = int(len(X_class) * 0.8)
+        X_train.extend(X_class[:split_idx])
+        X_test.extend(X_class[split_idx:])
+        y_train.extend(y_class[:split_idx])
+        y_test.extend(y_class[split_idx:])
+    X_train, X_test = np.array(X_train), np.array(X_test)
+    y_train, y_test = np.array(y_train), np.array(y_test)
     
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
