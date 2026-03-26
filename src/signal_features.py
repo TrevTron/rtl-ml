@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 """
 Signal Feature Extractor
-Extracts 18 numerical features from IQ samples for ML classification
+Extracts 17 numerical features from IQ samples for ML classification
 """
 import numpy as np
 
 class SignalFeatureExtractor:
-    """Extract 18 features from raw IQ samples."""
+    """Extract 17 features from raw IQ samples."""
     
     def __init__(self, sample_rate=1.024e6):
         self.sample_rate = sample_rate
     
     def extract_features(self, samples):
         """
-        Extract 18 features from IQ samples.
+        Extract 17 features from IQ samples.
         
         Args:
             samples: Complex IQ samples (numpy array)
             
         Returns:
-            numpy array of 18 numerical features
+            numpy array of 17 numerical features
         """
         features = []
         

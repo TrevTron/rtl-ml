@@ -13,7 +13,7 @@ from classify_live import classify_signal
 
 # Example: Classify FM broadcast at 98.7 MHz
 print("Classifying FM radio at 98.7 MHz...")
-prediction, confidence, _ = classify_signal(9870000, '../models/rtl_classifier_validated.pkl')
+prediction, confidence, _ = classify_signal(98.7e6)
 
 print(f"\nDetected: {prediction}")
 print(f"Confidence: {confidence*100:.0f}%")

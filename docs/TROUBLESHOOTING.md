@@ -11,11 +11,18 @@
 [R82XX] PLL not locked!
 ```
 
-**Cause:** Normal RTL-SDR behavior during frequency tuning
+**Cause:** You are running the **stock librtlsdr** driver which does not support the RTL-SDR Blog V4's R828D tuner. The PLL cannot lock because the default driver sends the wrong register configuration.
 
-**Impact:** None - captures work fine despite warnings
+**Impact:** Captures will contain garbage data — the tuner is not tuned to the requested frequency.
 
-**Fix:** Ignore these warnings (they're cosmetic)
+**Fix:** Install the [RTL-SDR Blog driver fork](https://github.com/rtlsdrblog/rtl-sdr-blog):
+```bash
+git clone https://github.com/rtlsdrblog/rtl-sdr-blog.git
+cd rtl-sdr-blog && mkdir build && cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
+make && sudo make install && sudo ldconfig
+```
+After installing, you should see `RTL-SDR Blog V4 Detected` on startup and PLL warnings will stop.
 
 ---
 
@@ -74,7 +81,7 @@ sudo udevadm control --reload-rules
 **1. Check antenna:**
 ```python
 # FM needs VHF antenna (88-108 MHz)
-# ADS-B needs 1090 MHz antenna
+# ISM sensors need UHF antenna (433 MHz)
 # Use appropriate antenna or wideband discone
 ```
 
@@ -87,7 +94,7 @@ rtl_power -f 88M:108M:1M -i 1 scan.csv
 **3. Capture more samples:**
 ```python
 # In capture_validated.py, change:
-samples_per_class = 50  # Was 30
+samples_per_class = 150  # Default is 100
 ```
 
 **4. Retrain model:**
@@ -200,7 +207,7 @@ ISM sensors: 0.0x burst ratio (expected > 5x)
 vis_samples = capture.capture_signal(freq, duration=2.0)  # Was 1.0
 
 # Or capture at known active times
-# (e.g., NOAA satellite must be overhead)
+# (e.g., NOAA Weather Radio is 24/7, but pager traffic varies)
 ```
 
 ---
@@ -247,7 +254,7 @@ print(f"Sample range: {np.min(np.abs(samples))} - {np.max(np.abs(samples))}")
 This repository is over its data quota
 ```
 
-**Cause:** Large dataset files (1.9GB) pushing to GitHub
+**Cause:** Large dataset files (~6.5 GB) pushing to GitHub
 
 **Fix:** Use Hugging Face Datasets instead:
 ```bash

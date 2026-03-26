@@ -11,7 +11,7 @@
 ### RTL-SDR Blog V4 ($39.95)
 - **Purchase**: [RTL-SDR.com](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
 - **Specs**: Rafael Micro R828D tuner, 500 kHz-1.7 GHz, 1 PPM TCXO, HF upconverter
-- **Driver**: Built into Linux kernel (no install needed)
+- **Driver**: Requires [RTL-SDR Blog driver fork](https://github.com/rtlsdrblog/rtl-sdr-blog) — stock librtlsdr does not support the R828D tuner
 - **USB**: Use USB 2.0 or 3.0 port
 
 **Total Cost: $219.90**

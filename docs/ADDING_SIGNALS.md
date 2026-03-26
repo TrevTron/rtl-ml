@@ -56,7 +56,7 @@ python src/capture_validated.py
 
 The script will:
 1. Tune to your frequency
-2. Capture 30 samples (0.5 seconds each)
+2. Capture 100 samples (0.5 seconds each)
 3. Generate a spectrogram PNG
 4. Save samples to `datasets_validated/FRS_radio/`
 
@@ -94,7 +94,7 @@ python src/train_validated.py
 Watch the output:
 ```
 Loading 9 classes: [..., 'FRS_radio']
-  FRS_radio: 30 samples
+  FRS_radio: 100 samples
 
 Random Forest
    Cross-val: 0.850 (±0.030)

@@ -160,7 +160,7 @@ def upload_dataset(dataset_dir, repo_name="rtl-ml-dataset"):
         
         # Upload all .npy files
         print(f"\n📤 Uploading {len(npy_files)} signal files...")
-        print("This will take several minutes for 1.9 GB...")
+        print("This will take several minutes for ~6.5 GB...")
         
         api.upload_folder(
             folder_path=str(dataset_path),

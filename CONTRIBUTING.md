@@ -158,7 +158,7 @@ def ExtractFeatures(self,samples):
 1. **Capture test** (if modifying capture):
    ```bash
    python src/capture_validated.py
-   # Verify 30 samples per class saved
+   # Verify 100 samples per class saved
    ```
 
 2. **Training test** (if modifying features/training):

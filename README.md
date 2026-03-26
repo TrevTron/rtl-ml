@@ -583,7 +583,7 @@ A: 96.9% on test set (155/160 correct). Perfect (100%) on 5/7 classes. FRS/GMRS 
 **Q: Can I add my own signals?**  
 A: Yes! See [docs/ADDING_SIGNALS.md](docs/ADDING_SIGNALS.md) - takes ~30 minutes.
 
-**Q: Is the dataset really 1.9GB?**  
+**Q: Is the dataset really 6.5 GB?**  
 A: Yes - raw IQ samples. Hosted on Hugging Face (free download).
 
 **Q: Does it work in my country?**  

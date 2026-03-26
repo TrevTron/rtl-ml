@@ -151,15 +151,6 @@ class ValidatedSignalCapture:
 
     # ── Per-class validators ──────────────────────────────────────────
 
-    def validate_adsb(self, samples):
-        power = np.abs(samples) ** 2
-        burst_ratio = np.max(power) / (np.mean(power) + 1e-10)
-        return {
-            'pass': burst_ratio > 10,
-            'burst_ratio': float(burst_ratio),
-            'note': 'ADS-B: expect >10x burst ratio from transponder pulses'
-        }
-
     def validate_ism(self, samples):
         power = np.abs(samples) ** 2
         burst_ratio = np.max(power) / (np.mean(power) + 1e-10)
