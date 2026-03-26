@@ -157,7 +157,7 @@ python src/classify_live.py --freq 868e6
 ### Choose Signals with Distinct Characteristics:
 
 **Good separation:**
-- ADS-B (bursts) vs FM (continuous)
+- FRS/GMRS (bursts) vs FM (continuous)
 - Narrowband (pager) vs Wideband (FM)
 - Packet (APRS) vs Voice (NFM)
 

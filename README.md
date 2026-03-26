@@ -138,7 +138,7 @@ python src/classify_live.py --freq 162.4e6  # NOAA weather
 
 - **Included**: Telescopic dipoles (comes with RTL-SDR V4)
 - **Upgrade**: Discone antenna for wideband coverage (25-1300 MHz)
-- **Specialized**: ADS-B antenna for 1090 MHz, QFH for satellites
+- **Specialized**: Yagi for specific frequencies, discone for wideband
 - **Budget**: Simple wire dipole (free!)
 
 See [docs/HARDWARE_SETUP.md](docs/HARDWARE_SETUP.md) for complete setup guide.
@@ -560,7 +560,7 @@ If you use RTL-ML in academic research:
   title = {RTL-ML: AI-Powered Radio Signal Classifier},
   year = {2026},
   url = {https://github.com/TrevTron/rtl-ml},
-  note = {87.5\% accuracy on 8 signal types using Random Forest on ARM hardware}
+  note = {96.9\% accuracy on 7 signal types using Random Forest on ARM hardware}
 }
 ```
 
@@ -578,7 +578,7 @@ A: Yes! Any RTL2832U-based SDR works (V3, NooElec, generic dongles).
 A: Raspberry Pi 4/5, Orange Pi 5, or any Linux machine with 8GB+ RAM works fine.
 
 **Q: How accurate is it really?**  
-A: 87.5% on test set. Perfect (100%) on 6/8 classes. APRS/noise confuse due to similar sparse packet structure.
+A: 96.9% on test set (155/160 correct). Perfect (100%) on 5/7 classes. FRS/GMRS and pager show minor confusion due to similar bursty patterns.
 
 **Q: Can I add my own signals?**  
 A: Yes! See [docs/ADDING_SIGNALS.md](docs/ADDING_SIGNALS.md) - takes ~30 minutes.

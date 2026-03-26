@@ -92,9 +92,8 @@ python examples/quick_start.py
 - Mount vertically for best results
 
 ### Upgrade Options:
-- **ADS-B (1090 MHz)**: Dedicated 1090 MHz antenna ($20-40)
-- **NOAA Satellites**: V-dipole or QFH antenna ($30-60)
 - **Wideband**: Discone antenna (25-1300 MHz, $50-100)
+- **VHF/UHF**: J-pole or slim jim ($20-40)
 - **Budget**: Simple wire dipole (free!)
 
 ---

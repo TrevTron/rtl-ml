@@ -9,15 +9,15 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from classify_live import classify_signal
 
-# Common frequencies to scan
+# Common frequencies to scan (v2 signal classes)
 frequencies = {
-    'ADS-B': 1090e6,
-    'NOAA 19': 137.62e6,
-    'ISM Sensors': 433.92e6,
     'FM Radio': 98.7e6,
     'NOAA Weather': 162.4e6,
-    'Pager': 152.84e6,
     'APRS': 144.39e6,
+    'Pager': 152.84e6,
+    'ISM Sensors': 433.92e6,
+    'FRS/GMRS': 462.5625e6,
+    'Noise Baseline': 145.0e6,
 }
 
 print("="*60)
