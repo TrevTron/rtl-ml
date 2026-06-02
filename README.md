@@ -64,12 +64,16 @@ cd ../..
 # Blacklist default DVB drivers
 echo 'blacklist dvb_usb_rtl28xxu' | sudo tee /etc/modprobe.d/blacklist-rtlsdr.conf
 
-# Install Python dependencies
+# Install Python dependencies in a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
 # Download pre-trained model + dataset from Hugging Face
 # (Instructions below)
 ```
+
+> **Note:** Recent Debian and Raspberry Pi OS releases (Bookworm and later) block system-wide pip installs under PEP 668, so the virtual environment avoids the `externally-managed-environment` error. Reactivate it with `source .venv/bin/activate` in any new terminal session before running the capture, training, or classification scripts.
 
 ### Option A: Use Pre-Trained Model (Instant Demo)
 
@@ -247,7 +251,8 @@ Captures 0.5 seconds of IQ samples at 1.024 MSPS (ARM-optimized rate to prevent 
 
 **Download from Hugging Face:**
 ```bash
-# Install Hugging Face Hub
+# Make sure the virtual environment is active first
+source .venv/bin/activate
 pip install huggingface-hub
 
 # Download dataset
@@ -596,6 +601,8 @@ A: Yes, but signal types may differ. Retrain with your local signals.
 ```bash
 git clone https://github.com/TrevTron/rtl-ml.git
 cd rtl-ml
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 python examples/quick_start.py
 ```
