@@ -250,14 +250,24 @@ Captures 0.5 seconds of IQ samples at 1.024 MSPS (ARM-optimized rate to prevent 
 **🔗 Dataset:** https://huggingface.co/datasets/TrevTron/rtl-ml-dataset
 
 **Download from Hugging Face:**
+
+First, make sure the virtual environment is active and install the client:
+
 ```bash
-# Make sure the virtual environment is active first
 source .venv/bin/activate
 pip install huggingface-hub
+```
 
-# Download dataset
+Then run this Python snippet to download the dataset:
+
+```python
 from huggingface_hub import snapshot_download
-snapshot_download(repo_id="TrevTron/rtl-ml-dataset", repo_type="dataset", local_dir="datasets_validated")
+
+snapshot_download(
+    repo_id="TrevTron/rtl-ml-dataset",
+    repo_type="dataset",
+    local_dir="datasets_validated",
+)
 ```
 
 **Dataset contents:**
