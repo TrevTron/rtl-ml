@@ -364,6 +364,28 @@ print(f"Signal: {prediction} ({confidence*100:.0f}% confidence)")
 # Output: Signal: FM_broadcast (94% confidence)
 ```
 
+### Classify a Recording File
+
+Classify IQ files captured by gqrx, RFAnalyzer, SDR#, `rtl_sdr` or the project's
+`.npy` captures. Recordings are DC-offset removed and resampled to the 1.024 MSPS
+training rate automatically; files longer than 0.5 s are chunked and the windows
+aggregated.
+
+```bash
+# Features only
+python src/classify_file.py capture.iq
+
+# Features + classifier analysis (auto-detected format when possible)
+python src/classify_file.py --classify samples/*.raw
+
+# Off-rate captures (e.g. 2 MSPS) are normalized to 1.024 MSPS by default
+python src/classify_file.py --classify 2MSps.iq
+```
+
+See [docs/CLASSIFY_FILE.md](docs/CLASSIFY_FILE.md) for supported formats, the
+0.5 s windowing/majority vote, and the downsampling commands (SoX, csdr, rtl_sdr).
+
+
 ### Batch Scanning
 
 ```python
@@ -418,6 +440,7 @@ rtl-ml/
 │   ├── capture_extra_fm.py   # Multi-frequency FM captures
 │   ├── train_validated.py    # ML training with temporal split
 │   ├── classify_live.py      # Real-time classification
+│   ├── classify_file.py      # Classify IQ recordings stored on disk
 │   ├── validate_v2.py        # Dataset validation checks
 │   ├── cross_freq_test.py    # Cross-frequency generalization test
 │   ├── gen_spectrograms.py   # Publication spectrogram generator
@@ -443,6 +466,7 @@ rtl-ml/
 ├── docs/                      # Documentation
 │   ├── HARDWARE_SETUP.md     # Detailed hardware guide
 │   ├── TROUBLESHOOTING.md    # Common issues + fixes
+│   ├── CLASSIFY_FILE.md      # Classify IQ recordings + 2 MSPS downsampling
 │   └── ADDING_SIGNALS.md     # How to add new signal types
 │
 └── examples/                  # Example scripts
